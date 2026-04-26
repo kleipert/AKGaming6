@@ -26,12 +26,13 @@ public class SliedeController : MonoBehaviour
         m_diveAction = InputSystem.actions.FindAction("Dive");
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         grounded = Physics2D.CircleCast(transform.position, 0.5f, Vector2.down, 0.1f, groundLayer);
 
         if (m_diveAction.IsPressed())
         {
+            Debug.Log("PRESSING SPACE");
             rb.AddForce(Vector2.down * diveForce, ForceMode2D.Force);
         }
     }
