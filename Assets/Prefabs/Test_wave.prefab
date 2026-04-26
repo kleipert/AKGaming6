@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8188196541258227745}
   - component: {fileID: 631952911731654005}
   - component: {fileID: 5891406306965708451}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Test_wave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 8
   m_MaskInteraction: 0
   m_Sprite: {fileID: 8699218723218410060, guid: 87589fc0f7955884fb8993db847a5008, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -102,7 +102,7 @@ EdgeCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 229992a8160843743b2737ca7a4e8e14, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -139,8 +139,10 @@ EdgeCollider2D:
   - {x: -22.692116, y: 1.1660746}
   - {x: -21.967737, y: 0.6263025}
   - {x: -20.836056, y: -0.1718756}
+  - {x: -20.453299, y: -0.38113326}
   - {x: -19.563627, y: -0.8675275}
-  - {x: -18.495901, y: -1.0346701}
+  - {x: -18.767887, y: -0.9742631}
+  - {x: -18.52597, y: -0.9865602}
   - {x: -17.871052, y: -0.6650951}
   - {x: -16.88018, y: 0.21406698}
   - {x: -15.602194, y: 1.6917478}
