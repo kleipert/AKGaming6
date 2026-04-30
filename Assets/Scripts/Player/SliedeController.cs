@@ -32,7 +32,6 @@ public class SliedeController : MonoBehaviour
 
         if (m_diveAction.IsPressed())
         {
-            Debug.Log("PRESSING SPACE");
             rb.AddForce(Vector2.down * diveForce, ForceMode2D.Force);
         }
     }
