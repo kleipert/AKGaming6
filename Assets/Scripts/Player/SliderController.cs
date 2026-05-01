@@ -6,6 +6,7 @@ namespace Player
     public class SliderController : MonoBehaviour
     {
         [SerializeField] private float diveForce = 20f;
+        [SerializeField] private float startForce = 40f;
         [SerializeField] private LayerMask groundLayer;
         [SerializeField] private Rigidbody2D rb;
         [SerializeField] private InputActionAsset inputActions;
@@ -16,6 +17,7 @@ namespace Player
         private void OnEnable()
         {
             inputActions.FindActionMap("Player").Enable();
+            rb.AddForce(Vector2.down * startForce, ForceMode2D.Force);
         }
 
         private void OnDisable()
@@ -34,7 +36,6 @@ namespace Player
 
             if (m_diveAction.IsPressed())
             {
-                Debug.Log("PRESSING SPACE");
                 rb.AddForce(Vector2.down * diveForce, ForceMode2D.Force);
             }
         }
