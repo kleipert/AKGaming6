@@ -1,0 +1,9 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/MainMenuUSS.uss?fileID=7433441132597879392&amp;guid=662987073a939a647b97474d22e312c9&amp;type=3"/>
+    <ui:VisualElement name="Container" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Art/UI/MainMenu/Background_Test.png?fileID=2800000&amp;guid=ef823ef87e980284e84abc314ce9c60b&amp;type=3#Background_Test&quot;); margin-bottom: 0; align-self: stretch; align-content: flex-start;">
+        <ui:Image name="Logo" style="background-image: url(&quot;project://database/Assets/Art/UI/Logo.png?fileID=21300000&amp;guid=f48379cdfeb60c840b5e5403e65ae8a3&amp;type=3#Logo&quot;); background-size: 960px 270px; margin-top: 50px; visibility: visible; width: 960px; height: 270px; left: auto; right: auto; top: 0%; align-self: center; margin-left: 0; margin-right: 0; margin-bottom: 0; padding-bottom: 0;"/>
+        <ui:Button text="" name="StartButton" class="button" style="background-image: url(&quot;project://database/Assets/Art/UI/Button_Start.png?fileID=2800000&amp;guid=f02009a86c07e87498f281f3803ea5c4&amp;type=3#Button_Start&quot;);"/>
+        <ui:Button text="" name="SettingsButton" class="button" style="background-image: url(&quot;project://database/Assets/Art/UI/Button_Settings.png?fileID=2800000&amp;guid=472fcf1a2183a0e4299efc418b35af0a&amp;type=3#Button_Settings&quot;);"/>
+        <ui:Button text="" name="ExitButton" class="button" style="background-image: url(&quot;project://database/Assets/Art/UI/Button_Exit.png?fileID=2800000&amp;guid=2e8ea013ea36ae143a1b657d81ff3c21&amp;type=3#Button_Exit&quot;);"/>
+    </ui:VisualElement>
+</ui:UXML>
