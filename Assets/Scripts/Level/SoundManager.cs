@@ -54,6 +54,7 @@ namespace Level
                     isPlayingGameClip = false;
                     audioSource.Stop();
                     OnGameClipFinished?.Invoke();
+                    audioCrowd.Play();
                 }
             }
         }

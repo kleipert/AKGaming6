@@ -1620,6 +1620,10 @@ PrefabInstance:
       propertyPath: startForce
       value: 800
       objectReference: {fileID: 0}
+    - target: {fileID: 6679673729525240374, guid: 2f2e54595096b6a4aaf33805a55f8cd0, type: 3}
+      propertyPath: m_Radius
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
