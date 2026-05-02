@@ -1,6 +1,8 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UIElements;
+using LootLocker.Requests;
 
 namespace UI
 {
@@ -16,6 +18,8 @@ namespace UI
 
         private Label _leaderboardNames;
         private Label _leaderboardScores;
+        
+        private readonly string _leaderboardKey = "global_highscore";
 
         private void Awake()
         {
@@ -40,6 +44,11 @@ namespace UI
             LoadScoreboard();
         }
 
+        private void Update()
+        {
+            _playerScore.text = Score.Instance.GetScore().ToString();
+        }
+
         private void LoadScoreboard()
         {
             LoadTopPlayerNames();
@@ -48,7 +57,7 @@ namespace UI
 
         private void LoadTopPlayerScores()
         {
-            
+            StartCoroutine(FetchHighscroe());
         }
 
         private void LoadTopPlayerNames()
@@ -66,7 +75,30 @@ namespace UI
             var playerName = _playerName.value;
             int playerScore;
             var success = int.TryParse(_playerScore.text.Substring(12), out playerScore);
-            
+            LootLockerSDKManager.SetPlayerName(playerName, (nameResponse) =>
+            {
+                if (!nameResponse.success)
+                {
+                    Debug.Log("SetPlayerName fehlgeschlagen: " + nameResponse.errorData?.message);
+                    return;
+                }
+
+                Debug.Log("Name gesetzt: " + playerName);
+                
+                string memberID = ""; 
+                LootLockerSDKManager.SubmitScore(memberID, playerScore, _leaderboardKey, (scoreResponse) =>
+                {
+                    if (scoreResponse.success)
+                    {
+                        Debug.Log("Score submitted: " + playerScore);
+                        StartCoroutine(FetchHighscroe());
+                    }
+                    else
+                    {
+                        Debug.Log("SubmitScore fehlgeschlagen: " + scoreResponse.errorData?.message);
+                    }
+                });
+            });
         }
 
         private void OnDisable()
@@ -81,6 +113,44 @@ namespace UI
             _playerName.value = evt.newValue.ToUpper();
         }
         
-        
+        private IEnumerator FetchHighscroe()
+        {
+            bool done = false;
+            LootLockerSDKManager.GetScoreList(_leaderboardKey, 10, 0, (response) =>
+            {
+                if (response.success)
+                {
+                    string tempPlayerNames = null;
+                    string tempPlayerScores = null;
+
+                    LootLockerLeaderboardMember[] members = response.items;
+
+                    for (int i = 0; i < members.Length; i++)
+                    {
+                        tempPlayerNames += members[i].rank + ". ";
+                        if (members[i].player.name != "")
+                        {
+                            tempPlayerNames += members[i].player.name;
+                        }
+                        else
+                        {
+                            tempPlayerNames += members[i].player.id;
+                        }
+
+                        tempPlayerScores += members[i].score + "\n";
+                        tempPlayerNames += "\n";
+                    }
+
+                    done = true;
+                    _leaderboardNames.text = tempPlayerNames;
+                    _leaderboardScores.text = tempPlayerScores;
+                }
+                else
+                {
+                    done = true;
+                }
+            });
+            yield return new WaitWhile(() => !done);
+        }
     }
 }

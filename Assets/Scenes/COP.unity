@@ -1192,6 +1192,10 @@ PrefabInstance:
       propertyPath: lightManager
       value: 
       objectReference: {fileID: 2061946365}
+    - target: {fileID: 2526580911782727502, guid: ef89fc98482fc8d4ba4dcfef9c5cc3ed, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5588224282175184928, guid: ef89fc98482fc8d4ba4dcfef9c5cc3ed, type: 3}
       propertyPath: m_LocalPosition.x
       value: -56.69872

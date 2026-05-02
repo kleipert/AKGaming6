@@ -1,6 +1,8 @@
 using System.Collections;
 using UnityEngine;
 using LootLocker.Requests;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class Leaderboard : MonoBehaviour
 {
