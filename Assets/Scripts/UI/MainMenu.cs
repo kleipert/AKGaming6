@@ -22,7 +22,7 @@ namespace UI
         private Button _dayButton;
         private Button _nightButton;
 
-        private bool _isDayActive = true;
+        private bool _isDayActive = false;
 
         private Sprite _daySprite;
         private Sprite _daySpriteToggled;
