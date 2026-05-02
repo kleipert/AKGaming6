@@ -6,11 +6,13 @@ using UnityEngine.Events;
 
 public class LightManager : MonoBehaviour
 {
+    private static readonly int Light = Animator.StringToHash("Light");
     [SerializeField] private float bpm;
     [SerializeField] private float duration;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private Intervals[] intervals;
     [SerializeField] private GameObject[] lights;
+    [SerializeField] private Animator animator;
 
     private void Update()
     {
@@ -22,6 +24,7 @@ public class LightManager : MonoBehaviour
                 foreach (GameObject obj in lights)
                 {
                     obj.SetActive(true);
+                    animator.SetTrigger(Light);
                 }
 
                 StartCoroutine(DisableLights());
@@ -37,7 +40,17 @@ public class LightManager : MonoBehaviour
             obj.SetActive(false);
         }
     }
+
+    public void SetBpm(float bpmNew)
+    {
+        this.bpm = bpmNew;
+    }
     
+    
+    public void SetDuration(float durationNew)
+    {
+        this.duration = durationNew;
+    }
 }
 
 [System.Serializable]

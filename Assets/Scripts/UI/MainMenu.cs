@@ -1,11 +1,17 @@
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UIElements;
 
 namespace UI
 {
     public class MainMenu : MonoBehaviour
     {
+        private static readonly int GameStart = Animator.StringToHash("GameStart");
+        [SerializeField] private Animator animator;
+        [SerializeField] private LightManager lightManager;
+        [SerializeField] private Light2D light2D;
+        
         private MenuManager _menuManager;
         private UIDocument _doc;
         private VisualElement _mainContainer;
@@ -70,6 +76,9 @@ namespace UI
             _dayButton.style.backgroundImage = new StyleBackground(_daySprite);
             _dayButton.style.scale = new StyleScale(new Vector2(1f, 1f));
             _isDayActive = false;
+            
+            lightManager.enabled = true;
+            light2D.intensity = 0.3f;
         }
 
         private void OnDayButtonClicked(ClickEvent evt)
@@ -81,6 +90,9 @@ namespace UI
             _nightButton.style.backgroundImage = new StyleBackground(_nightSprite);
             _nightButton.style.scale = new StyleScale(new Vector2(1f, 1f));
             _isDayActive = true;
+            
+            lightManager.enabled = false;
+            light2D.intensity = 0.8f;
         }
 
         public void OpenMainMenu()
@@ -108,6 +120,7 @@ namespace UI
         private void OnStartButtonClicked(ClickEvent evt)
         {
             HideMainMenu();
+            animator.SetTrigger(GameStart);
         }
         
     }
