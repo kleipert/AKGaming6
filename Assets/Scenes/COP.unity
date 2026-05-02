@@ -216,6 +216,7 @@ MonoBehaviour:
   audioSource: {fileID: 2061946363}
   playIntroOnStart: 1
   audioCrowd: {fileID: 93071941}
+  audioObject: {fileID: 2333230679644519921, guid: 62deb283cc4084a48aa831d58ff7412a, type: 3}
 --- !u!4 &93071940
 Transform:
   m_ObjectHideFlags: 0

@@ -13,6 +13,8 @@ public class SoundManager : MonoBehaviour
 
     [SerializeField] private AudioSource audioCrowd;
 
+    [SerializeField] private AudioSource audioObject;
+
     public event Action OnGameClipFinished;
     
     private float gameClipTime = 0f;  
@@ -97,5 +99,18 @@ public class SoundManager : MonoBehaviour
         gameClipTime = 0f;
         gameClipFinished = false;
         isPlayingGameClip = false;
+    }
+    
+    public void PlaySound(AudioClip clip, Transform spawnTransform, float volume, float clipLength = 1.0f)
+    {
+        AudioSource soundObject = Instantiate(audioObject, spawnTransform.position, Quaternion.identity);
+        
+        soundObject.clip = clip;
+        soundObject.volume = volume;
+        soundObject.Play();
+
+        clipLength *= soundObject.clip.length;
+        
+        Destroy(soundObject.gameObject, clipLength);
     }
 }
