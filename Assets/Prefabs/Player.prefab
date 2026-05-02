@@ -12,13 +12,14 @@ GameObject:
   - component: {fileID: 6679673729525240374}
   - component: {fileID: 4318954841063340577}
   - component: {fileID: 3480418420242596413}
+  - component: {fileID: 9138991578518291996}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2615768011894033351
 Transform:
   m_ObjectHideFlags: 0
@@ -113,11 +114,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SliedeController
   diveForce: 60
+  startForce: 800
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
   rb: {fileID: 4318954841063340577}
   inputActions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+--- !u!81 &9138991578518291996
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202842811760704310}
+  m_Enabled: 1
 --- !u!1 &4870330619869270020
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,8 +206,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -560246331
+  m_SortingLayer: 1
   m_SortingOrder: 7
   m_MaskInteraction: 0
   m_Sprite: {fileID: 5515248611724314509, guid: 8b4ed1205bed4fd4b968186f1ada8258, type: 3}
@@ -275,6 +285,12 @@ MonoBehaviour:
   fallOffset: 10
   fallSpeedThreshold: 10
   smoothing: 3
+  cam: {fileID: 0}
+  minOrthographicSize: 10
+  maxOrthographicSize: 50
+  zoomStartHeight: 10
+  zoomMaxHeight: 30
+  zoomSmoothing: 0.5
 --- !u!1 &9223183309537365991
 GameObject:
   m_ObjectHideFlags: 0
