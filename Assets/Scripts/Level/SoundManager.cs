@@ -11,6 +11,8 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private bool playIntroOnStart = true;
 
+    [SerializeField] private AudioSource audioCrowd;
+
     public event Action OnGameClipFinished;
     
     private float gameClipTime = 0f;  
@@ -83,6 +85,11 @@ public class SoundManager : MonoBehaviour
         audioSource.time = Mathf.Clamp(gameClipTime, 0f, clipGame.length - 0.05f);
         audioSource.Play();
         isPlayingGameClip = true;
+    }
+
+    public void PlayCrowd()
+    {
+        audioCrowd.Play();
     }
     
     public void ResetManager()

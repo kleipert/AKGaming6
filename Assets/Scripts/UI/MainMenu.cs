@@ -121,7 +121,7 @@ namespace UI
         {
             HideMainMenu();
             animator.SetTrigger(GameStart);
+            SoundManager.Instance.PlayCrowd();
         }
-        
     }
 }
