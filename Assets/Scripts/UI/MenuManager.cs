@@ -1,3 +1,4 @@
+using Level;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -81,6 +82,8 @@ namespace UI
             _mainMenu.HideMainMenu();
             _gameScreen.HideGameScreen();
             _pauseScreen.ShowPauseScreen();
+            Time.timeScale = 0;
+            SoundManager.Instance.SwitchClip();
         }
     }
 }

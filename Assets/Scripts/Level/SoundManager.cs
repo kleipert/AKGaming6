@@ -72,7 +72,7 @@ namespace Level
 
         public void PlayIntro()
         {
-            if (clipIntro == null) return;
+            if (!clipIntro) return;
 
             audioSource.clip = clipIntro;
             audioSource.time = 0f;
@@ -82,7 +82,7 @@ namespace Level
 
         public void PlayGame()
         {
-            if (clipGame == null) return;
+            if (!clipGame) return;
 
             audioSource.clip = clipGame;
             audioSource.time = Mathf.Clamp(gameClipTime, 0f, clipGame.length - 0.05f);

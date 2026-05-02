@@ -1,3 +1,4 @@
+using Level;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -52,11 +53,14 @@ namespace UI
         private void OnContinueButtonClicked(ClickEvent evt)
         {
             _menuManager.OpenGameScreen();
+            Time.timeScale = 1;
+            SoundManager.Instance.SwitchClip();
         }
 
         private void OnRestartButtonClicked(ClickEvent evt)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Time.timeScale = 1;
         }
 
         private void OnSettingsButtonClicked(ClickEvent evt)
