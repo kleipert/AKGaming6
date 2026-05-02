@@ -77,7 +77,7 @@ namespace UI
             _dayButton.style.scale = new StyleScale(new Vector2(1f, 1f));
             _isDayActive = false;
             
-            lightManager.enabled = true;
+            lightManager.ActivateLight();
             light2D.intensity = 0.3f;
         }
 
@@ -91,7 +91,7 @@ namespace UI
             _nightButton.style.scale = new StyleScale(new Vector2(1f, 1f));
             _isDayActive = true;
             
-            lightManager.enabled = false;
+            lightManager.DeactivateLight();
             light2D.intensity = 0.8f;
         }
 

@@ -246,7 +246,7 @@ GameObject:
   - component: {fileID: 172553053}
   m_Layer: 0
   m_Name: SpotLight_Stage_1
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -733,7 +733,7 @@ GameObject:
   - component: {fileID: 700481927}
   m_Layer: 0
   m_Name: SpotLight_Stage_3
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -822,7 +822,7 @@ GameObject:
   - component: {fileID: 778551593}
   m_Layer: 0
   m_Name: SpotLight_Stage_2
-  m_TagString: Untagged
+  m_TagString: Stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

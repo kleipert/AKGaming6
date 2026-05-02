@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Rendering.Universal;
 
 public class LightManager : MonoBehaviour
 {
@@ -50,6 +51,22 @@ public class LightManager : MonoBehaviour
     public void SetDuration(float durationNew)
     {
         this.duration = durationNew;
+    }
+
+    public void ActivateLight()
+    {
+        foreach (GameObject obj in lights)
+        {
+            obj.GetComponent<Light2D>().intensity = obj.CompareTag($"Stage") ? 1f : 5f;
+        }
+    }
+
+    public void DeactivateLight()
+    {
+        foreach (GameObject obj in lights)
+        {
+            obj.GetComponent<Light2D>().intensity = 0;
+        }
     }
 }
 
