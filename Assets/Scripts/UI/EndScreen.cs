@@ -10,6 +10,7 @@ namespace UI
     {
         private MenuManager _menuManager;
         private UIDocument _doc;
+        private VisualElement _mainContainer;
 
         private Label _playerScore;
         private TextField _playerName;
@@ -25,6 +26,7 @@ namespace UI
         {
             _doc = GetComponent<UIDocument>();
             _menuManager = GetComponentInParent<MenuManager>();
+            _mainContainer = _doc.rootVisualElement.Q("MainContainer");
             
             _playerScore = _doc.rootVisualElement.Q("LBL_playerScore") as Label;
             _playerName = _doc.rootVisualElement.Q("TF_playerName") as TextField;
@@ -42,6 +44,16 @@ namespace UI
             _restartButton.RegisterCallback<ClickEvent>(OnRestartClicked);
 
             LoadScoreboard();
+        }
+
+        public void ShowEndScreen()
+        {
+            _mainContainer.RemoveFromClassList("hide");
+        }
+
+        public void HideEndScreen()
+        {
+            _mainContainer.AddToClassList("hide");
         }
 
         private void Update()
