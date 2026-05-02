@@ -1,116 +1,118 @@
 using System;
 using UnityEngine;
 
-public class SoundManager : MonoBehaviour
+namespace Level
 {
-    public static SoundManager Instance { get; private set; }
-    
-    [SerializeField] private AudioClip clipIntro;
-    [SerializeField] private AudioClip clipGame;
-    
-    [SerializeField] private AudioSource audioSource;
-    [SerializeField] private bool playIntroOnStart = true;
-
-    [SerializeField] private AudioSource audioCrowd;
-
-    [SerializeField] private AudioSource audioObject;
-
-    public event Action OnGameClipFinished;
-    
-    private float gameClipTime = 0f;  
-    private bool isPlayingGameClip = false;
-    private bool gameClipFinished = false;
-
-    private void Awake()
+    public class SoundManager : MonoBehaviour
     {
-        if (Instance != null && Instance != this)
+        public static SoundManager Instance { get; private set; }
+    
+        [SerializeField] private AudioClip clipIntro;
+        [SerializeField] private AudioClip clipGame;
+    
+        [SerializeField] private AudioSource audioSource;
+        [SerializeField] private bool playIntroOnStart = true;
+
+        [SerializeField] private AudioSource audioCrowd;
+
+        [SerializeField] private AudioSource audioObject;
+
+        public event Action OnGameClipFinished;
+    
+        private float gameClipTime = 0f;  
+        private bool isPlayingGameClip = false;
+        private bool gameClipFinished = false;
+
+        private void Awake()
         {
-            Destroy(gameObject);
-            return;
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            Instance = this;
+
+            audioSource.loop = true;
         }
 
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-
-        audioSource.loop = true;
-    }
-
-    private void Start()
-    {
-        if (playIntroOnStart && clipIntro != null)
-            PlayIntro();
-    }
-
-    private void Update()
-    {
-        if (isPlayingGameClip && !gameClipFinished)
+        private void Start()
         {
-            gameClipTime += Time.deltaTime;
+            if (playIntroOnStart && clipIntro != null)
+                PlayIntro();
+        }
 
-            if (gameClipTime >= clipGame.length)
+        private void Update()
+        {
+            if (isPlayingGameClip && !gameClipFinished)
             {
-                gameClipFinished = true;
-                isPlayingGameClip = false;
-                audioSource.Stop();
-                OnGameClipFinished?.Invoke();
+                gameClipTime += Time.deltaTime;
+
+                if (gameClipTime >= clipGame.length)
+                {
+                    gameClipFinished = true;
+                    isPlayingGameClip = false;
+                    audioSource.Stop();
+                    OnGameClipFinished?.Invoke();
+                }
             }
         }
-    }
 
-    public void SwitchClip()
-    {
-        if (isPlayingGameClip)
+        public void SwitchClip()
         {
-            PlayIntro();
+            if (isPlayingGameClip)
+            {
+                PlayIntro();
+            }
+            else
+            {
+                PlayGame();
+            }
         }
-        else
+
+        public void PlayIntro()
         {
-            PlayGame();
+            if (clipIntro == null) return;
+
+            audioSource.clip = clipIntro;
+            audioSource.time = 0f;
+            audioSource.Play();
+            isPlayingGameClip = false;
         }
-    }
 
-    public void PlayIntro()
-    {
-        if (clipIntro == null) return;
+        public void PlayGame()
+        {
+            if (clipGame == null) return;
 
-        audioSource.clip = clipIntro;
-        audioSource.time = 0f;
-        audioSource.Play();
-        isPlayingGameClip = false;
-    }
+            audioSource.clip = clipGame;
+            audioSource.time = Mathf.Clamp(gameClipTime, 0f, clipGame.length - 0.05f);
+            audioSource.Play();
+            isPlayingGameClip = true;
+        }
 
-    public void PlayGame()
-    {
-        if (clipGame == null) return;
-
-        audioSource.clip = clipGame;
-        audioSource.time = Mathf.Clamp(gameClipTime, 0f, clipGame.length - 0.05f);
-        audioSource.Play();
-        isPlayingGameClip = true;
-    }
-
-    public void PlayCrowd()
-    {
-        audioCrowd.Play();
-    }
+        public void PlayCrowd()
+        {
+            audioCrowd.Play();
+        }
     
-    public void ResetManager()
-    {
-        gameClipTime = 0f;
-        gameClipFinished = false;
-        isPlayingGameClip = false;
-    }
+        public void ResetManager()
+        {
+            gameClipTime = 0f;
+            gameClipFinished = false;
+            isPlayingGameClip = false;
+        }
     
-    public void PlaySound(AudioClip clip, Transform spawnTransform, float volume, float clipLength = 1.0f)
-    {
-        AudioSource soundObject = Instantiate(audioObject, spawnTransform.position, Quaternion.identity);
+        public void PlaySound(AudioClip clip, Transform spawnTransform, float volume, float clipLength = 1.0f)
+        {
+            AudioSource soundObject = Instantiate(audioObject, spawnTransform.position, Quaternion.identity);
         
-        soundObject.clip = clip;
-        soundObject.volume = volume;
-        soundObject.Play();
+            soundObject.clip = clip;
+            soundObject.volume = volume;
+            soundObject.Play();
 
-        clipLength *= soundObject.clip.length;
+            clipLength *= soundObject.clip.length;
         
-        Destroy(soundObject.gameObject, clipLength);
+            Destroy(soundObject.gameObject, clipLength);
+        }
     }
 }

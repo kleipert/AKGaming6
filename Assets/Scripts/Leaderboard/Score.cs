@@ -11,6 +11,8 @@ public class Score : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] AudioSource audioSource;
     [SerializeField] private InputActionAsset inputActions;
+
+    private bool isGameDone = false;
     
     public Leaderboard leaderboard;
     private int score;
@@ -42,12 +44,18 @@ public class Score : MonoBehaviour
     
     void LateUpdate()
     {
-        if (audioSource.isPlaying)
+        if (audioSource.isPlaying || isGameDone)
             return;
-        //StartCoroutine(_enumerator);
-        _menuManager.OpenEndScreen();
-        inputActions.FindActionMap("Player").Disable();
-        inputActions.FindActionMap("UI").Enable();
+
+        
+        if (!isGameDone)
+        {
+            isGameDone = true;
+            //StartCoroutine(_enumerator);
+            _menuManager.OpenEndScreen();
+            inputActions.FindActionMap("Player").Disable();
+            inputActions.FindActionMap("UI").Enable();
+        }
     }
 
     /*IEnumerator StopGame()
