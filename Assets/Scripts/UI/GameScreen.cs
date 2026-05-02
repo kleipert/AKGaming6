@@ -30,5 +30,10 @@ namespace UI
         {
             _mainContainer.RemoveFromClassList("hide");
         }
+
+        private void Update()
+        {
+            _scoreValueLabel.text = Score.Instance.GetScore().ToString();
+        }
     }
 }

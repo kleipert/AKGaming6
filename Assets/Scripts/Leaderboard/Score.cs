@@ -1,4 +1,5 @@
 using System.Collections;
+using UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
@@ -15,6 +16,9 @@ public class Score : MonoBehaviour
     private int score;
     //private IEnumerator _enumerator;
 
+    private MenuManager _menuManager;
+    
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -28,6 +32,7 @@ public class Score : MonoBehaviour
     void Start()
     {
         //_enumerator = StopGame();
+        _menuManager = GameObject.Find("MenuManager").GetComponent<MenuManager>();
     }
 
     void Update()
@@ -40,6 +45,7 @@ public class Score : MonoBehaviour
         if (audioSource.isPlaying)
             return;
         //StartCoroutine(_enumerator);
+        _menuManager.OpenEndScreen();
         inputActions.FindActionMap("Player").Disable();
         inputActions.FindActionMap("UI").Enable();
     }

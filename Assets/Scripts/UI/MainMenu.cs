@@ -120,6 +120,7 @@ namespace UI
         private void OnStartButtonClicked(ClickEvent evt)
         {
             HideMainMenu();
+            _menuManager.OpenGameScreen();
             animator.SetTrigger(GameStart);
             SoundManager.Instance.PlayCrowd();
         }

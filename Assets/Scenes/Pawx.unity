@@ -241,7 +241,7 @@ AudioSource:
   m_GameObject: {fileID: 93071938}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -586726413459741926, guid: af26bb4d785bd8849919324161fd4aea, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 84d479a5cd25b57429b573c328bcbe43, type: 3}
   m_PlayOnAwake: 0
@@ -1300,7 +1300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Score
   player: {fileID: 110263739}
   audioSource: {fileID: 2061946363}
-  inputActions: {fileID: 0}
+  inputActions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   leaderboard: {fileID: 1445696872}
 --- !u!4 &971731097
 Transform:
@@ -1488,14 +1488,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2615768011894033351, guid: 2f2e54595096b6a4aaf33805a55f8cd0, type: 3}
   m_PrefabInstance: {fileID: 1502966735269294083}
   m_PrefabAsset: {fileID: 0}
---- !u!81 &1190945671
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 110263739}
-  m_Enabled: 1
 --- !u!1 &1204164649 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4760778451513865091, guid: 16d91d5230a73414caeb55649cc4a0b2, type: 3}
@@ -2097,42 +2089,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 202842811760704310, guid: 2f2e54595096b6a4aaf33805a55f8cd0, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1693594169406324723, guid: 2f2e54595096b6a4aaf33805a55f8cd0, type: 3}
       propertyPath: cam
       value: 
       objectReference: {fileID: 1650461165}
-    - target: {fileID: 1693594169406324723, guid: 2f2e54595096b6a4aaf33805a55f8cd0, type: 3}
-      propertyPath: vcam
-      value: 
-      objectReference: {fileID: 1650461165}
-    - target: {fileID: 1693594169406324723, guid: 2f2e54595096b6a4aaf33805a55f8cd0, type: 3}
-      propertyPath: baseSize
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1693594169406324723, guid: 2f2e54595096b6a4aaf33805a55f8cd0, type: 3}
-      propertyPath: minZoomSize
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1693594169406324723, guid: 2f2e54595096b6a4aaf33805a55f8cd0, type: 3}
-      propertyPath: zoomSmoothing
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1693594169406324723, guid: 2f2e54595096b6a4aaf33805a55f8cd0, type: 3}
-      propertyPath: maxZoomOutSize
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 1693594169406324723, guid: 2f2e54595096b6a4aaf33805a55f8cd0, type: 3}
-      propertyPath: zoomStartHeight
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1693594169406324723, guid: 2f2e54595096b6a4aaf33805a55f8cd0, type: 3}
-      propertyPath: riseSpeedThreshold
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 2615768011894033351, guid: 2f2e54595096b6a4aaf33805a55f8cd0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -47.25
@@ -2173,21 +2133,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3480418420242596413, guid: 2f2e54595096b6a4aaf33805a55f8cd0, type: 3}
-      propertyPath: diveForce
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 3480418420242596413, guid: 2f2e54595096b6a4aaf33805a55f8cd0, type: 3}
-      propertyPath: startForce
-      value: 800
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 202842811760704310, guid: 2f2e54595096b6a4aaf33805a55f8cd0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1190945671}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f2e54595096b6a4aaf33805a55f8cd0, type: 3}
 --- !u!1001 &1669095464814106846
 PrefabInstance:

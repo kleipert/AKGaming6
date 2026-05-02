@@ -5,7 +5,7 @@
         <ui:VisualElement name="SplitContainer" style="flex-grow: 1; flex-direction: row;">
             <ui:VisualElement name="PlayerInfo" style="flex-grow: 1; width: 800px;">
                 <ui:VisualElement style="flex-grow: 1; align-content: flex-start; flex-direction: column-reverse; margin-left: 50px; margin-right: 50px; align-self: auto; justify-content: flex-start;">
-                    <ui:TextField label="YOUR NAME: " placeholder-text="STAGEDIVERGODX" max-length="8" name="TF_playerName" style="-unity-font-definition: url(&quot;project://database/Assets/Art/Fonts/Tales%20of%20Scare%20FX.ttf?fileID=12800000&amp;guid=a9e5170035cd8e44c8f9ae78f2e73819&amp;type=3#Tales of Scare FX&quot;); font-size: 30px; -unity-background-image-tint-color: rgb(255, 255, 255); background-color: rgba(0, 0, 0, 0);"/>
+                    <ui:TextField label="YOUR NAME: " placeholder-text="STAGEDIVERGODX" name="TF_playerName" max-length="12" style="-unity-font-definition: url(&quot;project://database/Assets/Art/Fonts/Tales%20of%20Scare%20FX.ttf?fileID=12800000&amp;guid=a9e5170035cd8e44c8f9ae78f2e73819&amp;type=3#Tales of Scare FX&quot;); font-size: 30px; -unity-background-image-tint-color: rgb(255, 255, 255); background-color: rgba(0, 0, 0, 0);"/>
                     <ui:Label text="YOUR SCORE: 99999" name="LBL_playerScore" style="-unity-font-definition: url(&quot;project://database/Assets/Art/Fonts/Tales%20of%20Scare%20FX.ttf?fileID=12800000&amp;guid=a9e5170035cd8e44c8f9ae78f2e73819&amp;type=3#Tales of Scare FX&quot;); font-size: 30px; margin-bottom: 106px;"/>
                 </ui:VisualElement>
                 <ui:VisualElement name="ButtonArea" style="flex-grow: 1; flex-direction: row; height: 50px; margin-left: 50px;">
