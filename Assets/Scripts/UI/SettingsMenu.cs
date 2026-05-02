@@ -1,12 +1,12 @@
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UIElements;
 
 namespace UI
 {
     public class SettingsMenu : MonoBehaviour
     {
-        public float MusicSliderValue => _musicSliderValue;
-        public float VfxSliderValue => _vfxSliderValue;
+        [SerializeField] private AudioMixer _masterMixer;
 
         private MenuManager _menuManager;
         private UIDocument _doc;
@@ -15,9 +15,6 @@ namespace UI
         private Slider _musicSlider;
         private Slider _vfxSlider;
         private Button _backButton;
-
-        private int _musicSliderValue = 100;
-        private int _vfxSliderValue = 100;
 
         private void Awake()
         {
@@ -46,12 +43,13 @@ namespace UI
         
         private void OnVfxSliderValueChanged(ChangeEvent<float> evt)
         {
-            _vfxSliderValue = (int)evt.newValue;
+            _masterMixer.SetFloat("volVfx", evt.newValue);
+
         }
 
         private void OnMusicSliderValueChanged(ChangeEvent<float> evt)
         {
-            _musicSliderValue = (int) evt.newValue;
+            _masterMixer.SetFloat("volMusic", evt.newValue);
         }
 
         private void OnBackButtonClicked(ClickEvent evt)
