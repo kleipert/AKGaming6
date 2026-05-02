@@ -11,9 +11,6 @@
     left: auto;
     right: auto;
     bottom: auto;
-    display: flex;
-    visibility: visible;
-    overflow: visible;
     -unity-font-definition: url("project://database/Assets/Art/Fonts/Tales%20of%20Scare%20FX.ttf?fileID=12800000&guid=a9e5170035cd8e44c8f9ae78f2e73819&type=3#Tales of Scare FX");
     font-size: 30px;
     color: rgb(255, 0, 181);
@@ -31,4 +28,30 @@
     background-color: rgba(255, 255, 255, 0);
     transition-duration: 0.5s;
     transition-timing-function: ease;
+}
+
+.unity-base-slider__fill {
+    background-color: rgb(175, 175, 175);
+}
+
+.unity-base-slider__tracker {
+    background-color: rgb(70, 70, 70);
+    border-color: black;
+    scale: 1 4;
+    border-width: 1px;
+    border-left-width: 4px;
+    border-right-width: 4px;
+}
+
+.unity-base-slider__dragger {
+    background-image: url("project://database/Assets/Art/UI/slider_tick.png?fileID=21300000&guid=7658099a35632694aa5eab1c3d363b6f&type=3#slider_tick");
+    scale: 4 3;
+    border-width: 0;
+    background-color: rgba(255, 255, 255, 0);
+    transition-duration: 0.5s;
+    transition-property: scale;
+}
+
+.hide {
+    visibility: hidden;
 }
