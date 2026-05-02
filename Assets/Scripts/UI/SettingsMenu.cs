@@ -1,20 +1,20 @@
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UIElements;
 
 namespace UI
 {
     public class SettingsMenu : MonoBehaviour
     {
-        public float MusicSliderValue => _sliderValue;
+        [SerializeField] private AudioMixer _masterMixer;
 
         private MenuManager _menuManager;
         private UIDocument _doc;
         private VisualElement _mainContainer;
 
         private Slider _musicSlider;
+        private Slider _vfxSlider;
         private Button _backButton;
-
-        private int _sliderValue = 100;
 
         private void Awake()
         {
@@ -29,19 +29,27 @@ namespace UI
 
         private void OnEnable()
         {
-            _musicSlider.RegisterValueChangedCallback(OnSliderValueChanged);
+            _musicSlider.RegisterValueChangedCallback(OnMusicSliderValueChanged);
+            _vfxSlider.RegisterValueChangedCallback(OnVfxSliderValueChanged);
             _backButton.RegisterCallback<ClickEvent>(OnBackButtonClicked);
         }
 
         private void OnDisable()
         {
-            _musicSlider.UnregisterValueChangedCallback(OnSliderValueChanged);
+            _musicSlider.UnregisterValueChangedCallback(OnMusicSliderValueChanged);
+            _vfxSlider.UnregisterValueChangedCallback(OnVfxSliderValueChanged);
             _backButton.UnregisterCallback<ClickEvent>(OnBackButtonClicked);
         }
-
-        private void OnSliderValueChanged(ChangeEvent<float> evt)
+        
+        private void OnVfxSliderValueChanged(ChangeEvent<float> evt)
         {
-            _sliderValue = (int) evt.newValue;
+            _masterMixer.SetFloat("volVfx", evt.newValue);
+
+        }
+
+        private void OnMusicSliderValueChanged(ChangeEvent<float> evt)
+        {
+            _masterMixer.SetFloat("volMusic", evt.newValue);
         }
 
         private void OnBackButtonClicked(ClickEvent evt)
