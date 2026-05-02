@@ -155,7 +155,6 @@ MonoBehaviour:
     activationDistance: 0
     prefabs:
     - {fileID: 3141030680599458656, guid: 04269201702ef824ea4f0ec1188dc83b, type: 3}
-    - {fileID: 6077843113403164399, guid: 605a6103cb26dab4b86fb98b3596ea22, type: 3}
     - {fileID: 6524799918167799641, guid: fbd6f568106002e438a87681c4cd5335, type: 3}
     - {fileID: 467174086294009998, guid: ea1fb0c0aebe1444caeb4565a521f6ea, type: 3}
     - {fileID: 6100318637456432320, guid: cd960aca86d198845aa1a3b4ba000d29, type: 3}
@@ -177,6 +176,54 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -28.85975, y: -11.71609, z: 10.02062}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &93071938
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 93071940}
+  - component: {fileID: 93071939}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &93071939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93071938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a3ffbe4ab4596640938302ed7740ffb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SoundManager
+  clipIntro: {fileID: 8300000, guid: c71c504f3375aa047ac600f197003f34, type: 3}
+  clipGame: {fileID: 8300000, guid: 4b63ebb13ca67df4b9998fc91b9f2ab7, type: 3}
+  audioSource: {fileID: 2061946363}
+  playIntroOnStart: 1
+--- !u!4 &93071940
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93071938}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -56.69872, y: -18.18796, z: 8.95607}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -298,6 +345,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -447,6 +495,14 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!81 &519420034
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
 --- !u!1 &522182068 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7273063046237080294, guid: 16d91d5230a73414caeb55649cc4a0b2, type: 3}
@@ -971,6 +1027,7 @@ MonoBehaviour:
   player: {fileID: 110263739}
   cinemachineCamera: {fileID: 1027859514}
   lightManager: {fileID: 2061946365}
+  audioListener: {fileID: 519420034}
 --- !u!1 &830583116
 GameObject:
   m_ObjectHideFlags: 0
@@ -1628,7 +1685,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 4b63ebb13ca67df4b9998fc91b9f2ab7, type: 3}
+  m_Resource: {fileID: 8300000, guid: c71c504f3375aa047ac600f197003f34, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -2369,3 +2426,4 @@ SceneRoots:
   - {fileID: 803217058}
   - {fileID: 938482925}
   - {fileID: 1027859515}
+  - {fileID: 93071940}
