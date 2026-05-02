@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 public class Score : MonoBehaviour
@@ -8,10 +9,11 @@ public class Score : MonoBehaviour
     
     [SerializeField] GameObject player;
     [SerializeField] AudioSource audioSource;
+    [SerializeField] private InputActionAsset inputActions;
     
     public Leaderboard leaderboard;
     private int score;
-    private IEnumerator _enumerator;
+    //private IEnumerator _enumerator;
 
     private void Awake()
     {
@@ -25,7 +27,7 @@ public class Score : MonoBehaviour
 
     void Start()
     {
-        _enumerator = StopGame();
+        //_enumerator = StopGame();
     }
 
     void Update()
@@ -37,13 +39,15 @@ public class Score : MonoBehaviour
     {
         if (audioSource.isPlaying)
             return;
-        StartCoroutine(_enumerator);
+        //StartCoroutine(_enumerator);
+        inputActions.FindActionMap("Player").Disable();
+        inputActions.FindActionMap("UI").Enable();
     }
 
-    IEnumerator StopGame()
+    /*IEnumerator StopGame()
     {
         yield return leaderboard.SubmitScoreRoutine(score);
-    }
+    }*/
 
     public int GetScore()
     {

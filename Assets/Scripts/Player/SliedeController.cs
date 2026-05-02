@@ -13,6 +13,7 @@ public class SliedeController : MonoBehaviour
 
     private void OnEnable()
     {
+        inputActions.FindActionMap("UI").Disable();
         inputActions.FindActionMap("Player").Enable();
     }
 

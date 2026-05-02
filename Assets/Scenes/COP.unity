@@ -1296,6 +1296,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Score
   player: {fileID: 110263739}
   audioSource: {fileID: 2061946363}
+  inputActions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   leaderboard: {fileID: 1445696872}
 --- !u!4 &971731097
 Transform:
@@ -1527,7 +1528,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1445696872
 MonoBehaviour:
   m_ObjectHideFlags: 0
