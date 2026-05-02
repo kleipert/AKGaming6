@@ -3,12 +3,12 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UIElements;
 using LootLocker.Requests;
+using UnityEngine.SceneManagement;
 
 namespace UI
 {
     public class EndScreen : MonoBehaviour
     {
-        private MenuManager _menuManager;
         private UIDocument _doc;
         private VisualElement _mainContainer;
 
@@ -25,7 +25,6 @@ namespace UI
         private void Awake()
         {
             _doc = GetComponent<UIDocument>();
-            _menuManager = GetComponentInParent<MenuManager>();
             _mainContainer = _doc.rootVisualElement.Q("MainContainer");
             
             _playerScore = _doc.rootVisualElement.Q("LBL_playerScore") as Label;
@@ -42,23 +41,18 @@ namespace UI
             _playerName.RegisterValueChangedCallback(OnPlayerNameChanged);
             _submitButton.RegisterCallback<ClickEvent>(OnSubmitClicked);
             _restartButton.RegisterCallback<ClickEvent>(OnRestartClicked);
-
-            LoadScoreboard();
         }
 
         public void ShowEndScreen()
         {
             _mainContainer.RemoveFromClassList("hide");
+            LoadScoreboard();
+            _playerScore.text = $"YOUR SCORE: {Score.Instance.GetScore().ToString()}";
         }
 
         public void HideEndScreen()
         {
             _mainContainer.AddToClassList("hide");
-        }
-
-        private void Update()
-        {
-            _playerScore.text = Score.Instance.GetScore().ToString();
         }
 
         private void LoadScoreboard()
@@ -69,7 +63,7 @@ namespace UI
 
         private void LoadTopPlayerScores()
         {
-            StartCoroutine(FetchHighscroe());
+            StartCoroutine(FetchHighscore());
         }
 
         private void LoadTopPlayerNames()
@@ -79,14 +73,13 @@ namespace UI
 
         private void OnRestartClicked(ClickEvent evt)
         {
-            
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
         private void OnSubmitClicked(ClickEvent evt)
         {
             var playerName = _playerName.value;
-            int playerScore;
-            var success = int.TryParse(_playerScore.text.Substring(12), out playerScore);
+            int playerScore = Score.Instance.GetScore();
             LootLockerSDKManager.SetPlayerName(playerName, (nameResponse) =>
             {
                 if (!nameResponse.success)
@@ -103,7 +96,7 @@ namespace UI
                     if (scoreResponse.success)
                     {
                         Debug.Log("Score submitted: " + playerScore);
-                        StartCoroutine(FetchHighscroe());
+                        StartCoroutine(FetchHighscore());
                     }
                     else
                     {
@@ -125,7 +118,7 @@ namespace UI
             _playerName.value = evt.newValue.ToUpper();
         }
         
-        private IEnumerator FetchHighscroe()
+        private IEnumerator FetchHighscore()
         {
             bool done = false;
             LootLockerSDKManager.GetScoreList(_leaderboardKey, 10, 0, (response) =>

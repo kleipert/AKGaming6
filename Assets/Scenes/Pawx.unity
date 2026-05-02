@@ -241,7 +241,7 @@ AudioSource:
   m_GameObject: {fileID: 93071938}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -586726413459741926, guid: af26bb4d785bd8849919324161fd4aea, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 84d479a5cd25b57429b573c328bcbe43, type: 3}
   m_PlayOnAwake: 0
@@ -1300,7 +1300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Score
   player: {fileID: 110263739}
   audioSource: {fileID: 2061946363}
-  inputActions: {fileID: 0}
+  inputActions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   leaderboard: {fileID: 1445696872}
 --- !u!4 &971731097
 Transform:

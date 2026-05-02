@@ -22,6 +22,7 @@ namespace UI
             
             _mainContainer = _doc.rootVisualElement.Q("MainContainer");
             _musicSlider = _doc.rootVisualElement.Q("SliderMusic") as Slider;
+            _vfxSlider = _doc.rootVisualElement.Q("SliderVFX") as Slider;
             _backButton = _doc.rootVisualElement.Q("ExitButton") as Button;
 
             _menuManager = GetComponentInParent<MenuManager>();
