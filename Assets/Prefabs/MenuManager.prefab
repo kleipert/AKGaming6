@@ -197,6 +197,7 @@ GameObject:
   m_Component:
   - component: {fileID: 828081069495516827}
   - component: {fileID: 5810855815277866451}
+  - component: {fileID: 5910954408452528711}
   m_Layer: 0
   m_Name: GameScreen
   m_TagString: Untagged
@@ -242,6 +243,18 @@ MonoBehaviour:
   m_PivotReferenceSize: 0
   m_Pivot: 0
   m_WorldSpaceCollider: {fileID: 0}
+--- !u!114 &5910954408452528711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8905974608970941721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d179e317ef85304a98bd0531901a84d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameScreen
 --- !u!1 &8916873680287390175
 GameObject:
   m_ObjectHideFlags: 0

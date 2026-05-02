@@ -1240,6 +1240,10 @@ PrefabInstance:
       propertyPath: _masterMixer
       value: 
       objectReference: {fileID: 24100000, guid: af26bb4d785bd8849919324161fd4aea, type: 2}
+    - target: {fileID: 8905974608970941721, guid: ef89fc98482fc8d4ba4dcfef9c5cc3ed, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1296,6 +1300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Score
   player: {fileID: 110263739}
   audioSource: {fileID: 2061946363}
+  inputActions: {fileID: 0}
   leaderboard: {fileID: 1445696872}
 --- !u!4 &971731097
 Transform:
