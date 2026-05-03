@@ -62,3 +62,14 @@
     -unity-text-auto-size: none;
     align-self: center;
 }
+
+.unity-text-field__input{
+    background-color: rgba(255,255,255,0.25);
+    border-width: 3px;
+    border-color: white;
+}
+
+.unity-text-field__label{
+    color: white;
+    margin-right: 30px;
+}
