@@ -139,7 +139,7 @@ namespace UI
         private IEnumerator FetchHighscore()
         {
             bool done = false;
-            LootLockerSDKManager.GetScoreList(_leaderboardKey, 10, 0, (response) =>
+            LootLockerSDKManager.GetScoreList(_leaderboardKey, 8, 0, (response) =>
             {
                 if (response.success)
                 {
