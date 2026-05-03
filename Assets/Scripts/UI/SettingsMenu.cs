@@ -55,7 +55,10 @@ namespace UI
 
         private void OnBackButtonClicked(ClickEvent evt)
         {
-            _menuManager.OpenStartMenu();
+            if(Score.Instance.GetScore() <= 5)
+                _menuManager.OpenStartMenu();
+            else
+                _menuManager.OpenPauseScreen();
         }
 
         public void OpenSettingsMenu()
