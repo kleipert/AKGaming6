@@ -868,9 +868,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 803217057}
     - target: {fileID: 1739647196778997069, guid: ef89fc98482fc8d4ba4dcfef9c5cc3ed, type: 3}
+      propertyPath: _daySprite
+      value: 
+      objectReference: {fileID: 3595741093986014368, guid: d85ab5070200e0245b94c6c4cc03c1e9, type: 3}
+    - target: {fileID: 1739647196778997069, guid: ef89fc98482fc8d4ba4dcfef9c5cc3ed, type: 3}
+      propertyPath: _nightSprite
+      value: 
+      objectReference: {fileID: -7709156907683751962, guid: b1b9ca9eb229a8b4aa2c50abd32e73aa, type: 3}
+    - target: {fileID: 1739647196778997069, guid: ef89fc98482fc8d4ba4dcfef9c5cc3ed, type: 3}
       propertyPath: lightManager
       value: 
       objectReference: {fileID: 2061946365}
+    - target: {fileID: 1739647196778997069, guid: ef89fc98482fc8d4ba4dcfef9c5cc3ed, type: 3}
+      propertyPath: _daySpriteToggled
+      value: 
+      objectReference: {fileID: 668569805820549722, guid: f9d8fcc3017239248bf1a5e9efa736fd, type: 3}
+    - target: {fileID: 1739647196778997069, guid: ef89fc98482fc8d4ba4dcfef9c5cc3ed, type: 3}
+      propertyPath: _nightSpriteToggled
+      value: 
+      objectReference: {fileID: -2405017047111753005, guid: ca1a967aa672ec841894f77f46a17ea7, type: 3}
     - target: {fileID: 5588224282175184928, guid: ef89fc98482fc8d4ba4dcfef9c5cc3ed, type: 3}
       propertyPath: m_LocalPosition.x
       value: -56.69872

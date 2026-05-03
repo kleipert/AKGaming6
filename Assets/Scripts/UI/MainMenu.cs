@@ -1,5 +1,4 @@
 using Level;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UIElements;
@@ -25,10 +24,10 @@ namespace UI
 
         private bool _isDayActive = false;
 
-        private Sprite _daySprite;
-        private Sprite _daySpriteToggled;
-        private Sprite _nightSprite;
-        private Sprite _nightSpriteToggled;
+        [SerializeField] private Sprite _daySprite;
+        [SerializeField] private Sprite _daySpriteToggled;
+        [SerializeField] private Sprite _nightSprite;
+        [SerializeField] private Sprite _nightSpriteToggled;
 
 
         private void Awake()
@@ -43,11 +42,6 @@ namespace UI
             _exitButton = _doc.rootVisualElement.Q("ExitButton") as Button;
             _dayButton = _doc.rootVisualElement.Q("DayButton") as Button;
             _nightButton = _doc.rootVisualElement.Q("NightButton") as Button;
-
-            _daySprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Art/UI/MainMenu/Button_Day.png");
-            _daySpriteToggled = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Art/UI/MainMenu/Button_Day_Toggled.png");
-            _nightSprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Art/UI/MainMenu/Button_Night.png");
-            _nightSpriteToggled = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Art/UI/MainMenu/Button_Night_Toggled.png");
         }
 
         private void OnEnable()
