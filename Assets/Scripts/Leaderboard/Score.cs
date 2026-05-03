@@ -52,10 +52,17 @@ public class Score : MonoBehaviour
         {
             isGameDone = true;
             //StartCoroutine(_enumerator);
-            _menuManager.OpenEndScreen();
             inputActions.FindActionMap("Player").Disable();
             inputActions.FindActionMap("UI").Enable();
+            StartCoroutine(ShowEndScreen());
+            
         }
+    }
+    
+    IEnumerator ShowEndScreen()
+    {
+        yield return new WaitForSeconds(5);
+        _menuManager.OpenEndScreen();
     }
 
     /*IEnumerator StopGame()
