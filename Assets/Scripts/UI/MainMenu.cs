@@ -12,8 +12,10 @@ namespace UI
         [SerializeField] private Animator animator;
         [SerializeField] private LightManager lightManager;
         [SerializeField] private Light2D light2D;
+        
         [SerializeField] private AudioClip hoverClip;
-
+        [SerializeField] private AudioClip clickClip;
+        [SerializeField] private AudioClip errorClip;
         
         private MenuManager _menuManager;
         private UIDocument _doc;
@@ -75,7 +77,14 @@ namespace UI
 
         private void OnNightButtonClicked(ClickEvent evt)
         {
-            if (!_isDayActive) return;
+            if (!_isDayActive)
+            {
+                SoundManager.Instance.PlaySound(errorClip, transform, 1f);
+                return;
+            }
+            
+            SoundManager.Instance.PlaySound(clickClip, transform, 1f);
+            
             _nightButton.style.backgroundImage = new StyleBackground(_nightSpriteToggled);
             _nightButton.style.scale = new StyleScale(new Vector2(1.2f, 1.2f));
             
@@ -89,7 +98,14 @@ namespace UI
 
         private void OnDayButtonClicked(ClickEvent evt)
         {
-            if (_isDayActive) return;
+            if (_isDayActive)
+            {
+                SoundManager.Instance.PlaySound(errorClip, transform, 1f);
+                return;
+            }
+            
+            SoundManager.Instance.PlaySound(clickClip, transform, 1f);
+            
             _dayButton.style.backgroundImage = new StyleBackground(_daySpriteToggled);
             _dayButton.style.scale = new StyleScale(new Vector2(1.2f, 1.2f));
             
@@ -115,11 +131,13 @@ namespace UI
 
         private void OnExitButtonClicked(ClickEvent evt)
         {
+            SoundManager.Instance.PlaySound(clickClip, transform, 1f);
             Application.Quit();
         }
 
         private void OnSettingsButtonClicked(ClickEvent evt)
         {
+            SoundManager.Instance.PlaySound(clickClip, transform, 1f);
             _menuManager.OpenSettingsMenu();
         }
 
@@ -128,12 +146,13 @@ namespace UI
             HideMainMenu();
             _menuManager.OpenGameScreen();
             animator.SetTrigger(GameStart);
+            SoundManager.Instance.PlaySound(clickClip, transform, 1f);
             SoundManager.Instance.PlayCrowd();
         }
 
         private void OnHover(MouseEnterEvent evt)
         {
-            SoundManager.Instance.PlaySound(hoverClip, animator.transform, 1f);
+            SoundManager.Instance.PlaySound(hoverClip, transform, 1f);
         }
     }
 }

@@ -1,3 +1,4 @@
+using Level;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UIElements;
@@ -7,6 +8,9 @@ namespace UI
     public class SettingsMenu : MonoBehaviour
     {
         [SerializeField] private AudioMixer _masterMixer;
+        
+        [SerializeField] private AudioClip hoverClip;
+        [SerializeField] private AudioClip clickClip;
 
         private MenuManager _menuManager;
         private UIDocument _doc;
@@ -33,6 +37,8 @@ namespace UI
             _musicSlider.RegisterValueChangedCallback(OnMusicSliderValueChanged);
             _vfxSlider.RegisterValueChangedCallback(OnVfxSliderValueChanged);
             _backButton.RegisterCallback<ClickEvent>(OnBackButtonClicked);
+            
+            _backButton.RegisterCallback<MouseEnterEvent>(OnHover);
         }
 
         private void OnDisable()
@@ -40,6 +46,8 @@ namespace UI
             _musicSlider.UnregisterValueChangedCallback(OnMusicSliderValueChanged);
             _vfxSlider.UnregisterValueChangedCallback(OnVfxSliderValueChanged);
             _backButton.UnregisterCallback<ClickEvent>(OnBackButtonClicked);
+            
+            _backButton.UnregisterCallback<MouseEnterEvent>(OnHover);
         }
         
         private void OnVfxSliderValueChanged(ChangeEvent<float> evt)
@@ -55,6 +63,7 @@ namespace UI
 
         private void OnBackButtonClicked(ClickEvent evt)
         {
+            SoundManager.Instance.PlaySound(clickClip, transform, 1f);
             _menuManager.OpenStartMenu();
         }
 
@@ -68,6 +77,11 @@ namespace UI
         {
             _mainContainer.AddToClassList("hide");
             _backButton.RemoveFromClassList("button");
+        }
+        
+        private void OnHover(MouseEnterEvent evt)
+        {
+            SoundManager.Instance.PlaySound(hoverClip, transform, 1f);
         }
     }
 }

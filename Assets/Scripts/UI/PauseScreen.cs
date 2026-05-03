@@ -7,6 +7,9 @@ namespace UI
 {
     public class PauseScreen : MonoBehaviour
     {
+        [SerializeField] private AudioClip hoverClip;
+        [SerializeField] private AudioClip clickClip;
+        
         private MenuManager _menuManager;
         private UIDocument _doc;
         private VisualElement _mainContainer;
@@ -41,6 +44,10 @@ namespace UI
             _settingsButton.RegisterCallback<ClickEvent>(OnSettingsButtonClicked);
             _restartButton.RegisterCallback<ClickEvent>(OnRestartButtonClicked);
             _continueButton.RegisterCallback<ClickEvent>(OnContinueButtonClicked);
+            
+            _settingsButton.RegisterCallback<MouseEnterEvent>(OnHover);
+            _restartButton.RegisterCallback<MouseEnterEvent>(OnHover);
+            _continueButton.RegisterCallback<MouseEnterEvent>(OnHover);
         }
 
         private void OnDisable()
@@ -48,24 +55,35 @@ namespace UI
             _settingsButton.UnregisterCallback<ClickEvent>(OnSettingsButtonClicked);
             _restartButton.UnregisterCallback<ClickEvent>(OnRestartButtonClicked);
             _continueButton.UnregisterCallback<ClickEvent>(OnContinueButtonClicked);
+            
+            _settingsButton.UnregisterCallback<MouseEnterEvent>(OnHover);
+            _restartButton.UnregisterCallback<MouseEnterEvent>(OnHover);
+            _continueButton.UnregisterCallback<MouseEnterEvent>(OnHover);
         }
         
         private void OnContinueButtonClicked(ClickEvent evt)
         {
             _menuManager.OpenGameScreen();
             Time.timeScale = 1;
+            SoundManager.Instance.PlaySound(clickClip, transform, 1f);
             SoundManager.Instance.SwitchClip();
         }
 
         private void OnRestartButtonClicked(ClickEvent evt)
         {
+            SoundManager.Instance.PlaySound(clickClip, transform, 1f);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             Time.timeScale = 1;
         }
 
         private void OnSettingsButtonClicked(ClickEvent evt)
         {
-            
+            SoundManager.Instance.PlaySound(clickClip, transform, 1f);
+        }
+        
+        private void OnHover(MouseEnterEvent evt)
+        {
+            SoundManager.Instance.PlaySound(hoverClip, transform, 1f);
         }
     }
 }

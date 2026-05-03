@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Level;
 using UnityEngine;
 using UnityEngine.UIElements;
 using LootLocker.Requests;
@@ -9,6 +10,10 @@ namespace UI
 {
     public class EndScreen : MonoBehaviour
     {
+        [SerializeField] private AudioClip hoverClip;
+        [SerializeField] private AudioClip clickClip;
+        [SerializeField] private AudioClip errorClip;
+        
         private UIDocument _doc;
         private VisualElement _mainContainer;
 
@@ -41,8 +46,21 @@ namespace UI
             _playerName.RegisterValueChangedCallback(OnPlayerNameChanged);
             _submitButton.RegisterCallback<ClickEvent>(OnSubmitClicked);
             _restartButton.RegisterCallback<ClickEvent>(OnRestartClicked);
+            
+            _submitButton.RegisterCallback<MouseEnterEvent>(OnHover);
+            _restartButton.RegisterCallback<MouseEnterEvent>(OnHover);
         }
-
+        
+        private void OnDisable()
+        {
+            _playerName.UnregisterValueChangedCallback(OnPlayerNameChanged);
+            _submitButton.UnregisterCallback<ClickEvent>(OnSubmitClicked);
+            _restartButton.UnregisterCallback<ClickEvent>(OnRestartClicked);
+            
+            _submitButton.UnregisterCallback<MouseEnterEvent>(OnHover);
+            _restartButton.UnregisterCallback<MouseEnterEvent>(OnHover);
+        }
+        
         public void ShowEndScreen()
         {
             _mainContainer.RemoveFromClassList("hide");
@@ -77,6 +95,7 @@ namespace UI
 
         private void OnRestartClicked(ClickEvent evt)
         {
+            SoundManager.Instance.PlaySound(clickClip, transform, 1f);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
@@ -100,21 +119,16 @@ namespace UI
                     if (scoreResponse.success)
                     {
                         Debug.Log("Score submitted: " + playerScore);
+                        SoundManager.Instance.PlaySound(clickClip, transform, 1f);
                         StartCoroutine(FetchHighscore());
                     }
                     else
                     {
+                        SoundManager.Instance.PlaySound(errorClip, transform, 1f);
                         Debug.Log("SubmitScore fehlgeschlagen: " + scoreResponse.errorData?.message);
                     }
                 });
             });
-        }
-
-        private void OnDisable()
-        {
-            _playerName.UnregisterValueChangedCallback(OnPlayerNameChanged);
-            _submitButton.UnregisterCallback<ClickEvent>(OnSubmitClicked);
-            _restartButton.UnregisterCallback<ClickEvent>(OnRestartClicked);
         }
 
         private void OnPlayerNameChanged(ChangeEvent<string> evt)
@@ -160,6 +174,11 @@ namespace UI
                 }
             });
             yield return new WaitWhile(() => !done);
+        }
+        
+        private void OnHover(MouseEnterEvent evt)
+        {
+            SoundManager.Instance.PlaySound(hoverClip, transform, 1f);
         }
     }
 }

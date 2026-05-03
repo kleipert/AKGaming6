@@ -68,6 +68,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a7d25ef27a61a046a82085d2c156196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EndScreen
+  hoverClip: {fileID: 8300000, guid: aaf134c8b74e459459db593105a03420, type: 3}
+  clickClip: {fileID: 8300000, guid: 899ac78efe67d6c45a6ce3f399bfea85, type: 3}
+  errorClip: {fileID: 8300000, guid: 4d31486aef7f5164f9687c97b6165c03, type: 3}
 --- !u!1 &6207963750312110325
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,6 +139,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 243bb72a960c15549a75b20f29d9d4dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI.PauseScreen
+  hoverClip: {fileID: 8300000, guid: aaf134c8b74e459459db593105a03420, type: 3}
+  clickClip: {fileID: 8300000, guid: 899ac78efe67d6c45a6ce3f399bfea85, type: 3}
 --- !u!1 &8014216713989228221
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,6 +263,12 @@ MonoBehaviour:
   lightManager: {fileID: 0}
   light2D: {fileID: 0}
   hoverClip: {fileID: 8300000, guid: aaf134c8b74e459459db593105a03420, type: 3}
+  clickClip: {fileID: 8300000, guid: 899ac78efe67d6c45a6ce3f399bfea85, type: 3}
+  errorClip: {fileID: 8300000, guid: 4d31486aef7f5164f9687c97b6165c03, type: 3}
+  _daySprite: {fileID: 3595741093986014368, guid: d85ab5070200e0245b94c6c4cc03c1e9, type: 3}
+  _daySpriteToggled: {fileID: 668569805820549722, guid: f9d8fcc3017239248bf1a5e9efa736fd, type: 3}
+  _nightSprite: {fileID: -7709156907683751962, guid: b1b9ca9eb229a8b4aa2c50abd32e73aa, type: 3}
+  _nightSpriteToggled: {fileID: -2405017047111753005, guid: ca1a967aa672ec841894f77f46a17ea7, type: 3}
 --- !u!1 &8905974608970941721
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,3 +407,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SettingsMenu
   _masterMixer: {fileID: 24100000, guid: af26bb4d785bd8849919324161fd4aea, type: 2}
+  hoverClip: {fileID: 8300000, guid: aaf134c8b74e459459db593105a03420, type: 3}
+  clickClip: {fileID: 8300000, guid: 899ac78efe67d6c45a6ce3f399bfea85, type: 3}
