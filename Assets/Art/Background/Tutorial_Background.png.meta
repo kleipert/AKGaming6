@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 3a7ca50483337bb48aced9d7d99b9782
+guid: b33277ef2eba5514eb9d5fbf79c51b11
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3623858876016680831
-    second: Plane_Solo_Plan_0
-  - first:
-      213: 5510950687786944573
-    second: Plane_Solo_Plan_1
+      213: 1096907432040338373
+    second: Tutorial_Background_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -129,23 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Plane_Solo_Plan_0
+      name: Tutorial_Background_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1071
-        height: 535
+        width: 1920
+        height: 1080
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 18021e26d8775bdc0800000000000000
-      internalID: -3623858876016680831
+      spriteID: 5c3104e6f7ff83f00800000000000000
+      internalID: 1096907432040338373
       vertices: []
       indices: 
       edges: []
@@ -154,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: b89b0f6247311f24e8b6f15024c9a62b
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -164,8 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Plane_Solo_Plan_0: -3623858876016680831
-      Plane_Solo_Plan_1: 5510950687786944573
+      Tutorial_Background_0: 1096907432040338373
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
