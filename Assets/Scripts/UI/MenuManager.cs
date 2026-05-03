@@ -82,6 +82,8 @@ namespace UI
 
         public void OpenPauseScreen()
         {
+            if (Score.Instance.GetScore() < 1) return;
+            
             ActivateUIMap();
             _leaderboardScreen.HideLeaderboardScreen();
             _endScreen.HideEndScreen();
