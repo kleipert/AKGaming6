@@ -507,7 +507,7 @@ MonoBehaviour:
     Enabled: 0
     DefaultMode: 2
   DefaultBlend:
-    Style: 1
+    Style: 2
     Time: 2
     CustomCurve:
       serializedVersion: 2
@@ -523,7 +523,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!1 &522182068 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7273063046237080294, guid: 16d91d5230a73414caeb55649cc4a0b2, type: 3}
@@ -1538,7 +1538,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 202842811760704310, guid: 2f2e54595096b6a4aaf33805a55f8cd0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1693594169406324723, guid: 2f2e54595096b6a4aaf33805a55f8cd0, type: 3}
       propertyPath: cam
@@ -1571,6 +1571,10 @@ PrefabInstance:
     - target: {fileID: 1693594169406324723, guid: 2f2e54595096b6a4aaf33805a55f8cd0, type: 3}
       propertyPath: riseSpeedThreshold
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1835364125565526761, guid: 2f2e54595096b6a4aaf33805a55f8cd0, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2615768011894033351, guid: 2f2e54595096b6a4aaf33805a55f8cd0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1618,7 +1622,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3480418420242596413, guid: 2f2e54595096b6a4aaf33805a55f8cd0, type: 3}
       propertyPath: startForce
-      value: 800
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318954841063340577, guid: 2f2e54595096b6a4aaf33805a55f8cd0, type: 3}
+      propertyPath: m_Constraints
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4870330619869270020, guid: 2f2e54595096b6a4aaf33805a55f8cd0, type: 3}
+      propertyPath: m_Name
+      value: PlayerSpriteRenderer
       objectReference: {fileID: 0}
     - target: {fileID: 6679673729525240374, guid: 2f2e54595096b6a4aaf33805a55f8cd0, type: 3}
       propertyPath: m_Radius

@@ -16,6 +16,13 @@ namespace Player
 
         private void OnEnable()
         {
+            /*
+            inputActions.FindActionMap("Player").Enable();
+            rb.AddForce(Vector2.down * startForce, ForceMode2D.Force);*/    
+        }
+
+        public void BoostThisMFer()
+        {
             inputActions.FindActionMap("Player").Enable();
             rb.AddForce(Vector2.down * startForce, ForceMode2D.Force);
         }

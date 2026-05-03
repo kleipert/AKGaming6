@@ -40,6 +40,9 @@ namespace Level
         {
             if (playIntroOnStart && clipIntro != null)
                 PlayIntro();
+            SwitchClip();
+            SwitchClip();
+            gameClipTime = 0f;
         }
 
         private void Update()
