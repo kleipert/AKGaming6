@@ -69,7 +69,6 @@ namespace UI
                 _menuManager.OpenPauseScreen();
             
             SoundManager.Instance.PlaySound(clickClip, transform, 1f);
-            _menuManager.OpenStartMenu();
         }
 
         public void OpenSettingsMenu()

@@ -123,6 +123,13 @@ namespace UI
                     }
                 });
             });
+            StartCoroutine(WaitSeconds());
+        }
+
+        private IEnumerator WaitSeconds()
+        {
+            yield return new WaitForSeconds(5);
+            StartCoroutine(FetchHighscore());
         }
 
         private void OnPlayerNameChanged(ChangeEvent<string> evt)
