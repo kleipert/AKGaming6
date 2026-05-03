@@ -27,7 +27,7 @@ namespace Level
         private MenuManager _menuManager;
     
         private float gameClipTime = 0f;  
-        private bool isPlayingGameClip = false;
+        public bool isPlayingGameClip = false;
         private bool gameClipFinished = false;
 
         private void Awake()

@@ -90,7 +90,8 @@ namespace UI
             _gameScreen.HideGameScreen();
             _pauseScreen.ShowPauseScreen();
             Time.timeScale = 0;
-            SoundManager.Instance.SwitchClip();
+            if(SoundManager.Instance.isPlayingGameClip)
+                SoundManager.Instance.SwitchClip();
         }
         
         public void OpenLeaderboardScreen()
