@@ -34,6 +34,8 @@ namespace Player
 
         private void Awake()
         {
+            inputActions.FindActionMap("Player").Disable();
+            inputActions.FindActionMap("UI").Enable();
             m_diveAction = InputSystem.actions.FindAction("Dive");
         }
 
