@@ -24,6 +24,7 @@ namespace UI
         private Button _exitButton;
         private Button _dayButton;
         private Button _nightButton;
+        private Button _leaderboardButton;
 
         private bool _isDayActive = false;
 
@@ -45,6 +46,7 @@ namespace UI
             _exitButton = _doc.rootVisualElement.Q("ExitButton") as Button;
             _dayButton = _doc.rootVisualElement.Q("DayButton") as Button;
             _nightButton = _doc.rootVisualElement.Q("NightButton") as Button;
+            _leaderboardButton = _doc.rootVisualElement.Q("LeaderboardButton") as Button;
         }
 
         private void OnEnable()
@@ -54,11 +56,15 @@ namespace UI
             _exitButton.RegisterCallback<ClickEvent>(OnExitButtonClicked);
             _dayButton.RegisterCallback<ClickEvent>(OnDayButtonClicked);
             _nightButton.RegisterCallback<ClickEvent>(OnNightButtonClicked);
+            _leaderboardButton.RegisterCallback<ClickEvent>(OnLeaderboardButtonClicked);
             
             _startButton.RegisterCallback<MouseEnterEvent>(OnHover);
             _settingsButton.RegisterCallback<MouseEnterEvent>(OnHover);
             _exitButton.RegisterCallback<MouseEnterEvent>(OnHover);
+            _leaderboardButton.RegisterCallback<MouseEnterEvent>(OnHover);
         }
+
+
 
         private void OnDisable()
         {
@@ -67,10 +73,17 @@ namespace UI
             _exitButton.UnregisterCallback<ClickEvent>(OnExitButtonClicked);
             _dayButton.UnregisterCallback<ClickEvent>(OnDayButtonClicked);
             _nightButton.UnregisterCallback<ClickEvent>(OnNightButtonClicked);
+            _leaderboardButton.UnregisterCallback<ClickEvent>(OnLeaderboardButtonClicked);
             
             _startButton.UnregisterCallback<MouseEnterEvent>(OnHover);
             _settingsButton.UnregisterCallback<MouseEnterEvent>(OnHover);
             _exitButton.UnregisterCallback<MouseEnterEvent>(OnHover);
+            _leaderboardButton.UnregisterCallback<MouseEnterEvent>(OnHover);
+        }
+        
+        private void OnLeaderboardButtonClicked(ClickEvent evt)
+        {
+            _menuManager.OpenLeaderboardScreen();
         }
 
         private void OnNightButtonClicked(ClickEvent evt)

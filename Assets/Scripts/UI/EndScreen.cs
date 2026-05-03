@@ -61,18 +61,12 @@ namespace UI
 
         private void LoadScoreboard()
         {
-            LoadTopPlayerNames();
             LoadTopPlayerScores();
         }
 
         private void LoadTopPlayerScores()
         {
             StartCoroutine(FetchHighscore());
-        }
-
-        private void LoadTopPlayerNames()
-        {
-            
         }
 
         private void OnRestartClicked(ClickEvent evt)
@@ -125,7 +119,7 @@ namespace UI
         private IEnumerator FetchHighscore()
         {
             bool done = false;
-            LootLockerSDKManager.GetScoreList(_leaderboardKey, 10, 0, (response) =>
+            LootLockerSDKManager.GetScoreList(_leaderboardKey, 8, 0, (response) =>
             {
                 if (response.success)
                 {

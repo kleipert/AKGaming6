@@ -535,6 +535,74 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1352602674185563289, guid: 16d91d5230a73414caeb55649cc4a0b2, type: 3}
   m_PrefabInstance: {fileID: 5507214275593387957}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &525080246
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 525080247}
+  - component: {fileID: 525080249}
+  - component: {fileID: 525080248}
+  m_Layer: 0
+  m_Name: LeaderboardScreen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &525080247
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525080246}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1217167879}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &525080248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525080246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cff12693ce67a5445bf4ac32bd23e2c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LeaderboardScreen
+--- !u!114 &525080249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525080246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
+  m_PanelSettings: {fileID: 11400000, guid: 7d5c21a57b632d149ae050ed0cca0afb, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 7d31df25a16b30b4d8707556f3a67a3d, type: 3}
+  m_SortingOrder: 0
+  m_Position: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+  m_PivotReferenceSize: 0
+  m_Pivot: 0
+  m_WorldSpaceCollider: {fileID: 0}
 --- !u!1 &536268470 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7019188637607932464, guid: 16d91d5230a73414caeb55649cc4a0b2, type: 3}
@@ -934,7 +1002,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5588224282175184928, guid: ef89fc98482fc8d4ba4dcfef9c5cc3ed, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 525080247}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef89fc98482fc8d4ba4dcfef9c5cc3ed, type: 3}
 --- !u!1 &947079453 stripped
@@ -1176,6 +1247,11 @@ Transform:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4760778451513865091, guid: 16d91d5230a73414caeb55649cc4a0b2, type: 3}
   m_PrefabInstance: {fileID: 5507214275593387957}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1217167879 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5588224282175184928, guid: ef89fc98482fc8d4ba4dcfef9c5cc3ed, type: 3}
+  m_PrefabInstance: {fileID: 938482925}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1228343761 stripped
 GameObject:
