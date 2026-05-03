@@ -79,18 +79,12 @@ namespace UI
 
         private void LoadScoreboard()
         {
-            LoadTopPlayerNames();
             LoadTopPlayerScores();
         }
 
         private void LoadTopPlayerScores()
         {
             StartCoroutine(FetchHighscore());
-        }
-
-        private void LoadTopPlayerNames()
-        {
-            
         }
 
         private void OnRestartClicked(ClickEvent evt)

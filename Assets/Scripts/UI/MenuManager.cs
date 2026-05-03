@@ -12,6 +12,7 @@ namespace UI
         private EndScreen _endScreen;
         private GameScreen _gameScreen;
         private PauseScreen _pauseScreen;
+        private LeaderboardScreen _leaderboardScreen;
 
         private void Awake()
         {
@@ -20,6 +21,7 @@ namespace UI
             _endScreen = GetComponentInChildren<EndScreen>();
             _gameScreen = GetComponentInChildren<GameScreen>();
             _pauseScreen = GetComponentInChildren<PauseScreen>();
+            _leaderboardScreen = GetComponentInChildren<LeaderboardScreen>();
         }
 
         private void ActivateUIMap()
@@ -37,6 +39,7 @@ namespace UI
         public void OpenStartMenu()
         {
             ActivateUIMap();
+            _leaderboardScreen.HideLeaderboardScreen();
             _pauseScreen.HidePauseScreen();
             _gameScreen.HideGameScreen();
             _endScreen.HideEndScreen();
@@ -47,6 +50,7 @@ namespace UI
         public void OpenSettingsMenu()
         {
             ActivateUIMap();
+            _leaderboardScreen.HideLeaderboardScreen();
             _pauseScreen.HidePauseScreen();
             _endScreen.HideEndScreen();
             _gameScreen.HideGameScreen();
@@ -57,6 +61,7 @@ namespace UI
         public void OpenGameScreen()
         {
             ActivatePlayerMap();
+            _leaderboardScreen.HideLeaderboardScreen();
             _pauseScreen.HidePauseScreen();
             _settingsMenu.HideSettingsMenu();
             _mainMenu.HideMainMenu();
@@ -67,6 +72,7 @@ namespace UI
         public void OpenEndScreen()
         {
             ActivateUIMap();
+            _leaderboardScreen.HideLeaderboardScreen();
             _pauseScreen.HidePauseScreen();
             _settingsMenu.HideSettingsMenu();
             _mainMenu.HideMainMenu();
@@ -77,6 +83,7 @@ namespace UI
         public void OpenPauseScreen()
         {
             ActivateUIMap();
+            _leaderboardScreen.HideLeaderboardScreen();
             _endScreen.HideEndScreen();
             _settingsMenu.HideSettingsMenu();
             _mainMenu.HideMainMenu();
@@ -84,6 +91,17 @@ namespace UI
             _pauseScreen.ShowPauseScreen();
             Time.timeScale = 0;
             SoundManager.Instance.SwitchClip();
+        }
+        
+        public void OpenLeaderboardScreen()
+        {
+            ActivateUIMap();
+            _pauseScreen.HidePauseScreen();
+            _settingsMenu.HideSettingsMenu();
+            _mainMenu.HideMainMenu();
+            _gameScreen.HideGameScreen();
+            _endScreen.HideEndScreen();
+            _leaderboardScreen.ShowLeaderboardScreen();
         }
     }
 }
