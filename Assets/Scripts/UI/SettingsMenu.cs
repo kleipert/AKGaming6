@@ -63,8 +63,12 @@ namespace UI
 
         private void OnBackButtonClicked(ClickEvent evt)
         {
+            if(Score.Instance.GetScore() <= 5)
+                _menuManager.OpenStartMenu();
+            else
+                _menuManager.OpenPauseScreen();
+            
             SoundManager.Instance.PlaySound(clickClip, transform, 1f);
-            _menuManager.OpenStartMenu();
         }
 
         public void OpenSettingsMenu()

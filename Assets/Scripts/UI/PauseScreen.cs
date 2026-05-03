@@ -31,6 +31,7 @@ namespace UI
 
         public void ShowPauseScreen()
         {
+            _continueButton.AddToClassList("button");
             _mainContainer.RemoveFromClassList("hide");
         }
 
@@ -63,6 +64,7 @@ namespace UI
         
         private void OnContinueButtonClicked(ClickEvent evt)
         {
+            _continueButton.RemoveFromClassList("button");
             _menuManager.OpenGameScreen();
             Time.timeScale = 1;
             SoundManager.Instance.PlaySound(clickClip, transform, 1f);
@@ -79,6 +81,7 @@ namespace UI
         private void OnSettingsButtonClicked(ClickEvent evt)
         {
             SoundManager.Instance.PlaySound(clickClip, transform, 1f);
+            _menuManager.OpenSettingsMenu();
         }
         
         private void OnHover(MouseEnterEvent evt)
