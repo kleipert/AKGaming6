@@ -1,6 +1,6 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/MainMenuUSS.uss?fileID=7433441132597879392&amp;guid=662987073a939a647b97474d22e312c9&amp;type=3#MainMenuUSS"/>
-    <ui:VisualElement name="MainContainer" enabled="true" style="flex-grow: 1; background-image: none; margin-bottom: 0; align-self: stretch; align-content: flex-start; width: 1920px; height: 1080px;">
+    <ui:VisualElement name="MainContainer" enabled="true" class="hide" style="flex-grow: 1; background-image: none; margin-bottom: 0; align-self: stretch; align-content: flex-start; width: 1920px; height: 1080px;">
         <ui:Image name="Logo" style="background-image: url(&quot;project://database/Assets/Art/UI/Logo.png?fileID=21300000&amp;guid=f48379cdfeb60c840b5e5403e65ae8a3&amp;type=3#Logo&quot;); background-size: 960px 270px; margin-top: 0; width: 960px; height: 270px; left: auto; right: auto; top: 3%; align-self: center; margin-left: 0; margin-right: 0; margin-bottom: 0; padding-bottom: 0;"/>
         <ui:VisualElement name="SplitContainer" style="flex-grow: 1; flex-direction: row;">
             <ui:VisualElement name="PlayerInfo" style="flex-grow: 1; width: 800px;">
