@@ -1,4 +1,5 @@
 using System.Collections;
+using Level;
 using LootLocker.Requests;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -7,6 +8,9 @@ namespace UI
 {
     public class LeaderboardScreen : MonoBehaviour
     {
+        [SerializeField] private AudioClip hoverClip;
+        [SerializeField] private AudioClip clickClip;
+        
         private UIDocument _doc;
         private VisualElement _mainContainer;
         private MenuManager _menuManager;
@@ -33,12 +37,13 @@ namespace UI
         private void OnEnable()
         {
             _backButton.RegisterCallback<ClickEvent>(OnBackButtonClicked);
-            
+            _backButton.RegisterCallback<MouseEnterEvent>(OnHover);
         }
 
         private void OnDisable()
         {
             _backButton.UnregisterCallback<ClickEvent>(OnBackButtonClicked);
+            _backButton.UnregisterCallback<MouseEnterEvent>(OnHover);
         }
         
         public void ShowLeaderboardScreen()
@@ -57,6 +62,7 @@ namespace UI
         
         private void OnBackButtonClicked(ClickEvent evt)
         {
+            SoundManager.Instance.PlaySound(clickClip, transform, 1f);
             _menuManager.OpenStartMenu();
         }
         
@@ -99,5 +105,11 @@ namespace UI
             });
             yield return new WaitWhile(() => !done);
         }
+        
+        private void OnHover(MouseEnterEvent evt)
+        {
+            SoundManager.Instance.PlaySound(hoverClip, transform, 1f);
+        }
     }
 }
+
