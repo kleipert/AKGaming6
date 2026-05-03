@@ -257,6 +257,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   lightManager: {fileID: 0}
   light2D: {fileID: 0}
+  hoverClip: {fileID: 8300000, guid: aaf134c8b74e459459db593105a03420, type: 3}
 --- !u!1 &8905974608970941721
 GameObject:
   m_ObjectHideFlags: 0

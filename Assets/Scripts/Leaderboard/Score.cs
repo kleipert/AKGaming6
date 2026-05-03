@@ -12,7 +12,7 @@ public class Score : MonoBehaviour
     [SerializeField] AudioSource audioSource;
     [SerializeField] private InputActionAsset inputActions;
 
-    private bool isGameDone = false;
+    //private bool isGameDone = false;
     
     public Leaderboard leaderboard;
     private int score;
@@ -42,11 +42,10 @@ public class Score : MonoBehaviour
         score = Mathf.FloorToInt(player.transform.position.x - transform.position.x);
     }
     
-    void LateUpdate()
+    /*void LateUpdate()
     {
         if (audioSource.isPlaying || isGameDone)
             return;
-
         
         if (!isGameDone)
         {
@@ -63,7 +62,7 @@ public class Score : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         _menuManager.OpenEndScreen();
-    }
+    }*/
 
     /*IEnumerator StopGame()
     {

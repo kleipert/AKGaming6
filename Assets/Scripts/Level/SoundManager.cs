@@ -1,5 +1,8 @@
 using System;
+using System.Collections;
+using UI;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Level
 {
@@ -16,8 +19,12 @@ namespace Level
         [SerializeField] private AudioSource audioCrowd;
 
         [SerializeField] private AudioSource audioObject;
+        
+        [SerializeField] private InputActionAsset inputActions;
 
         public event Action OnGameClipFinished;
+        
+        private MenuManager _menuManager;
     
         private float gameClipTime = 0f;  
         private bool isPlayingGameClip = false;
@@ -38,6 +45,8 @@ namespace Level
 
         private void Start()
         {
+            _menuManager = GameObject.Find("MenuManager").GetComponent<MenuManager>();
+
             if (playIntroOnStart && clipIntro != null)
                 PlayIntro();
             SwitchClip();
@@ -50,6 +59,13 @@ namespace Level
             if (isPlayingGameClip && !gameClipFinished)
             {
                 gameClipTime += Time.deltaTime;
+                
+                if (audioSource.time >= clipGame.length - 0.5f)
+                {
+                    inputActions.FindActionMap("Player").Disable();
+                    inputActions.FindActionMap("UI").Enable();
+                    StartCoroutine(ShowEndScreen());
+                }
 
                 if (gameClipTime >= clipGame.length)
                 {
@@ -92,6 +108,12 @@ namespace Level
             audioSource.time = Mathf.Clamp(gameClipTime, 0f, clipGame.length - 0.05f);
             audioSource.Play();
             isPlayingGameClip = true;
+        }
+    
+        IEnumerator ShowEndScreen()
+        {
+            yield return new WaitForSeconds(5);
+            _menuManager.OpenEndScreen();
         }
 
         public void PlayCrowd()

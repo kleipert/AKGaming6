@@ -1,6 +1,7 @@
 using Level;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UIElements;
 
@@ -12,6 +13,8 @@ namespace UI
         [SerializeField] private Animator animator;
         [SerializeField] private LightManager lightManager;
         [SerializeField] private Light2D light2D;
+        [SerializeField] private AudioClip hoverClip;
+
         
         private MenuManager _menuManager;
         private UIDocument _doc;
@@ -57,6 +60,10 @@ namespace UI
             _exitButton.RegisterCallback<ClickEvent>(OnExitButtonClicked);
             _dayButton.RegisterCallback<ClickEvent>(OnDayButtonClicked);
             _nightButton.RegisterCallback<ClickEvent>(OnNightButtonClicked);
+            
+            _startButton.RegisterCallback<MouseEnterEvent>(OnHover);
+            _settingsButton.RegisterCallback<MouseEnterEvent>(OnHover);
+            _exitButton.RegisterCallback<MouseEnterEvent>(OnHover);
         }
 
         private void OnDisable()
@@ -66,6 +73,10 @@ namespace UI
             _exitButton.UnregisterCallback<ClickEvent>(OnExitButtonClicked);
             _dayButton.UnregisterCallback<ClickEvent>(OnDayButtonClicked);
             _nightButton.UnregisterCallback<ClickEvent>(OnNightButtonClicked);
+            
+            _startButton.UnregisterCallback<MouseEnterEvent>(OnHover);
+            _settingsButton.UnregisterCallback<MouseEnterEvent>(OnHover);
+            _exitButton.UnregisterCallback<MouseEnterEvent>(OnHover);
         }
 
         private void OnNightButtonClicked(ClickEvent evt)
@@ -124,6 +135,11 @@ namespace UI
             _menuManager.OpenGameScreen();
             animator.SetTrigger(GameStart);
             SoundManager.Instance.PlayCrowd();
+        }
+
+        private void OnHover(MouseEnterEvent evt)
+        {
+            SoundManager.Instance.PlaySound(hoverClip, animator.transform, 1f);
         }
     }
 }
