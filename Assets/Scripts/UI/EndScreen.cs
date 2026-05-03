@@ -47,6 +47,10 @@ namespace UI
         {
             _mainContainer.RemoveFromClassList("hide");
             LoadScoreboard();
+        }
+
+        private void Update()
+        {
             _playerScore.text = $"YOUR SCORE: {Score.Instance.GetScore().ToString()}";
         }
 
