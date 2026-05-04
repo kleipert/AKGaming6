@@ -682,12 +682,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 863234145}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 42b9794d0dae7b944832007a4a62147d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Framerate
-  frameCap: 0
+  frameCap: 30
 --- !u!4 &863234147
 Transform:
   m_ObjectHideFlags: 0
@@ -1464,6 +1464,14 @@ PrefabInstance:
     - target: {fileID: 2615768011894033351, guid: 2f2e54595096b6a4aaf33805a55f8cd0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3480418420242596413, guid: 2f2e54595096b6a4aaf33805a55f8cd0, type: 3}
+      propertyPath: diveForce
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 3480418420242596413, guid: 2f2e54595096b6a4aaf33805a55f8cd0, type: 3}
+      propertyPath: startForce
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
